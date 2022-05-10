@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21D62" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CDAstro" representedClassName="CDAstro" syncable="YES">
+        <attribute name="copyright" optional="YES" attributeType="String"/>
+        <attribute name="date" attributeType="String"/>
+        <attribute name="explanation" attributeType="String"/>
+        <attribute name="hdurl" optional="YES" attributeType="String"/>
+        <attribute name="isFavourite" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="mediaType" attributeType="String" customClassName="MediaType"/>
+        <attribute name="serviceVersion" attributeType="String" customClassName="ServiceVersion"/>
+        <attribute name="title" attributeType="String"/>
+        <attribute name="url" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="CDAstro" positionX="-63" positionY="-18" width="128" height="164"/>
+    </elements>
+</model>
