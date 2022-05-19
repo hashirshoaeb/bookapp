@@ -47,7 +47,7 @@ extension FavouriteViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "BookTableViewCell") as! BookTableViewCell
-        cell.setup(indexPath: indexPath, delegate: self, astro: astros[indexPath.row])
+//        cell.setup(indexPath: indexPath, delegate: self, astro: astros[indexPath.row])
         return cell
     }
     
@@ -56,7 +56,7 @@ extension FavouriteViewController : UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension FavouriteViewController : BookTableViewCellEvents {
+extension FavouriteViewController  {
     
     func onFavouriteButtonTapped(index: IndexPath, astro: CDAstro) {
         astros[index.row] = astro

@@ -7,34 +7,32 @@
 
 import UIKit
 
-protocol BookTableViewCellEvents {
-    func onFavouriteButtonTapped(index : IndexPath , astro : CDAstro)
-}
+typealias HeartTapped = (_ indexPath: IndexPath, _ astro: CDAstro) -> ()
 
 class BookTableViewCell: UITableViewCell {
     
     let favouriteIcon = "heart.fill"
     let unfavoutieIcon = "heart"
-    var isFavourite = false
+    
     var astro : CDAstro?
     var indexPath : IndexPath?
-    var delegate : BookTableViewCellEvents?
+    var onFavouriteButtonTapped: HeartTapped?
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    // MARK: - View
     @IBOutlet weak var bookLabelView: UILabel!
     @IBOutlet weak var favouriteIconButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        isFavourite = false
     }
     
-    func setup(indexPath: IndexPath, delegate: BookTableViewCellEvents, astro: CDAstro) {
-        self.delegate = delegate
+    func setup(indexPath: IndexPath, astro: CDAstro, onFavouriteButtonTapped: @escaping HeartTapped) {
         self.astro = astro
         self.indexPath = indexPath
         self.bookLabelView.text = astro.title
+        self.onFavouriteButtonTapped = onFavouriteButtonTapped
         setFavouriteIcon(astro.isFavourite)
     }
     
@@ -48,13 +46,12 @@ class BookTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
     }
     
     @IBAction func onFavouriteIconTapped(_ sender: UIButton) {
-        astro!.toggleFavourite(in: context)
-        setFavouriteIcon(astro!.isFavourite)
-        delegate!.onFavouriteButtonTapped(index: indexPath!, astro: astro!)
+        // astro!.toggleFavourite(in: context)
+//        setFavouriteIcon(astro!.isFavourite)
+        onFavouriteButtonTapped?(indexPath!, astro!)
     }
     
     

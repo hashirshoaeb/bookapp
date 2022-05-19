@@ -19,7 +19,6 @@ class API {
         self.url = "https://api.nasa.gov/planetary/apod?api_key=\(apiKey)&start_date=2015-09-07&end_date=2015-10-09"
     }
     
-
 }
 
 

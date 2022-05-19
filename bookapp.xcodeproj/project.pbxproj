@@ -23,6 +23,9 @@
 		2EADC3AC28167B5A00344B14 /* BookTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2EADC3AA28167B5A00344B14 /* BookTableViewCell.xib */; };
 		2EADC3AE2816808500344B14 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EADC3AD2816808500344B14 /* Book.swift */; };
 		2EADC3B0281680CE00344B14 /* BookApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EADC3AF281680CE00344B14 /* BookApi.swift */; };
+		2EB1E22D2833E087007438A0 /* HomeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB1E22C2833E087007438A0 /* HomeWorker.swift */; };
+		2EBF127D2834C38000F67532 /* HomeInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBF127C2834C38000F67532 /* HomeInteractor.swift */; };
+		2EBF127F2834C40100F67532 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBF127E2834C40100F67532 /* HomePresenter.swift */; };
 		AA54D7110C97FFEA41AC8809 /* Pods_bookapp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B04295978F7244C3974EACC /* Pods_bookapp.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +48,9 @@
 		2EADC3AA28167B5A00344B14 /* BookTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookTableViewCell.xib; sourceTree = "<group>"; };
 		2EADC3AD2816808500344B14 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		2EADC3AF281680CE00344B14 /* BookApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookApi.swift; sourceTree = "<group>"; };
+		2EB1E22C2833E087007438A0 /* HomeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWorker.swift; sourceTree = "<group>"; };
+		2EBF127C2834C38000F67532 /* HomeInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInteractor.swift; sourceTree = "<group>"; };
+		2EBF127E2834C40100F67532 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		9B04295978F7244C3974EACC /* Pods_bookapp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bookapp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B08230F13504CB4977E795CD /* Pods-bookapp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bookapp.debug.xcconfig"; path = "Target Support Files/Pods-bookapp/Pods-bookapp.debug.xcconfig"; sourceTree = "<group>"; };
 		B70D032CE512C5E9038CE311 /* Pods-bookapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bookapp.release.xcconfig"; path = "Target Support Files/Pods-bookapp/Pods-bookapp.release.xcconfig"; sourceTree = "<group>"; };
@@ -62,6 +68,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E2858CB282E3A2B00C948E9 /* main */ = {
+			isa = PBXGroup;
+			children = (
+				2EADC3A32816751100344B14 /* MainViewController.swift */,
+				2EB1E22C2833E087007438A0 /* HomeWorker.swift */,
+				2EBF127C2834C38000F67532 /* HomeInteractor.swift */,
+				2EBF127E2834C40100F67532 /* HomePresenter.swift */,
+			);
+			path = main;
+			sourceTree = "<group>";
+		};
 		2E8A6AE1282922AC00D1C657 /* model schema */ = {
 			isa = PBXGroup;
 			children = (
@@ -69,6 +86,15 @@
 				2E8A6AE3282922AC00D1C657 /* CDAstro+CoreDataProperties.swift */,
 			);
 			path = "model schema";
+			sourceTree = "<group>";
+		};
+		2EA5B341282E420900931822 /* BookTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				2EADC3A928167B5A00344B14 /* BookTableViewCell.swift */,
+				2EADC3AA28167B5A00344B14 /* BookTableViewCell.xib */,
+			);
+			path = BookTableViewCell;
 			sourceTree = "<group>";
 		};
 		2EADC3832816735000344B14 = {
@@ -92,6 +118,8 @@
 		2EADC38E2816735000344B14 /* bookapp */ = {
 			isa = PBXGroup;
 			children = (
+				2EA5B341282E420900931822 /* BookTableViewCell */,
+				2E2858CB282E3A2B00C948E9 /* main */,
 				2E8A6AE1282922AC00D1C657 /* model schema */,
 				2EADC38F2816735000344B14 /* AppDelegate.swift */,
 				2EADC3912816735000344B14 /* SceneDelegate.swift */,
@@ -100,10 +128,7 @@
 				2EADC3982816735300344B14 /* Assets.xcassets */,
 				2EADC39A2816735300344B14 /* LaunchScreen.storyboard */,
 				2EADC39D2816735300344B14 /* Info.plist */,
-				2EADC3A32816751100344B14 /* MainViewController.swift */,
 				2EADC3A52816752400344B14 /* DetailViewController.swift */,
-				2EADC3A928167B5A00344B14 /* BookTableViewCell.swift */,
-				2EADC3AA28167B5A00344B14 /* BookTableViewCell.xib */,
 				2EADC3AD2816808500344B14 /* Book.swift */,
 				2EADC3AF281680CE00344B14 /* BookApi.swift */,
 				2E3B021F281AA22C0008DF34 /* FavouriteViewController.swift */,
@@ -248,15 +273,18 @@
 				2EADC3942816735000344B14 /* ViewController.swift in Sources */,
 				2EADC3902816735000344B14 /* AppDelegate.swift in Sources */,
 				2EADC3AE2816808500344B14 /* Book.swift in Sources */,
+				2EBF127F2834C40100F67532 /* HomePresenter.swift in Sources */,
 				2EADC3A62816752400344B14 /* DetailViewController.swift in Sources */,
 				2E8A6AE5282922AC00D1C657 /* CDAstro+CoreDataProperties.swift in Sources */,
 				2E8A6AE4282922AC00D1C657 /* CDAstro+CoreDataClass.swift in Sources */,
 				2E8BD421282553E0000097ED /* bookapp.xcdatamodeld in Sources */,
 				2E3B0220281AA22C0008DF34 /* FavouriteViewController.swift in Sources */,
 				2EADC3922816735000344B14 /* SceneDelegate.swift in Sources */,
+				2EB1E22D2833E087007438A0 /* HomeWorker.swift in Sources */,
 				2EADC3B0281680CE00344B14 /* BookApi.swift in Sources */,
 				2EADC3AB28167B5A00344B14 /* BookTableViewCell.swift in Sources */,
 				2EADC3A42816751100344B14 /* MainViewController.swift in Sources */,
+				2EBF127D2834C38000F67532 /* HomeInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
