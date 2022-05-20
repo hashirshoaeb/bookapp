@@ -14,8 +14,11 @@ class HomeWorker {
     let api = API()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    func markUnFavourite() {
+        try? context.save()
+    }
     func markFavourite() {
-        
+        try? context.save()
     }
     
     func fetchRandomNumber(onSuccess: @escaping ([CDAstro])->()) throws {

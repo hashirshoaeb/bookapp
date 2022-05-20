@@ -1,36 +1,22 @@
 //
-//  MainViewController.swift
+//  FavouriteViewController.swift
 //  bookapp
 //
-//  Created by Muhammad Hashir Shoaib on 25/04/2022.
+//  Created by Muhammad Hashir Shoaib on 28/04/2022.
 //
 
 import UIKit
-import CoreData
 
-enum Home {
-    enum fetchAstroList {
-        struct Request{}
-        struct Response{}
-        struct ViewModel{}
-    }
-}
-
-protocol ViewSetup {
-    func setup()
-}
-
-protocol HomeDisplayLogic {
+protocol FavouriteDisplayLogic {
     func updateTable(astros: [CDAstro])
     func updateRow(at: IndexPath)
 }
 
-
-class HomeViewController: UIViewController, ViewSetup, HomeDisplayLogic {
+class FavouriteViewController: UIViewController, ViewSetup,  FavouriteDisplayLogic {
     // MARK: - VIP setup
     
-    var interactor: HomeBusinessLogic!
-    var router: (HomeRoutingLogic & HomeDataPassing)!
+    var interactor: FavouriteBusinessLogic!
+    var router: (FavouriteRoutingLogic & FavouriteDataPassing)!
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -42,40 +28,36 @@ class HomeViewController: UIViewController, ViewSetup, HomeDisplayLogic {
         setup()
     }
     
-    
     func setup() {
         let viewController = self
-        let presenter = HomePresenter(viewController: viewController)
-        let interactor = HomeInteractor(presenter: presenter)
-        let router = HomeRouter(viewController: viewController, dataStore: interactor)
+        let presenter = FavouritePresenter(viewController: viewController)
+        let interactor = FavouriteInteractor(presenter: presenter)
+        let router = FavouriteRouter(viewController: viewController, dataStore: interactor)
         viewController.interactor = interactor
         viewController.router = router
-        
     }
     
     // MARK: - View
     
     @IBOutlet weak var tableView: UITableView!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Love"
+        self.title = "Favourite"
         let nib = UINib(nibName: "BookTableViewCell", bundle: nil)
         self.tableView.register(nib, forCellReuseIdentifier: "BookTableViewCell")
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        loadAstros()
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "DetailViewController" {
-            router?.routeToDetailScreen(segue: segue)
-            // detailView.setup(data: astros[indexPath!.row])
-        }  else if segue.identifier == "FavouriteViewController" {
-            router.routeToFavouriteScreen(segue: segue)
-        }
+        if segue.identifier == "FavouriteDetailViewController" {
+            router.routeToDetailScreen(segue: segue)
+        } 
     }
+    
     
     func updateTable(astros: [CDAstro]) {
         tableView.reloadData()
@@ -85,16 +67,12 @@ class HomeViewController: UIViewController, ViewSetup, HomeDisplayLogic {
         tableView.reloadRows(at: [at], with: .fade)
     }
     
-    // MARK: - Events
-    
-    func loadAstros() {
-        interactor?.fetchAstros(request: Home.fetchAstroList.Request())
-    }
 }
 
-extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
+// Table view protocls
+extension FavouriteViewController : UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return interactor!.astroCount()
+        return interactor.astroCount()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -105,11 +83,7 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         interactor.setSelectedAstro(index: indexPath)
-        self.performSegue(withIdentifier: "DetailViewController", sender: nil)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        tableView.reloadData()
+        self.performSegue(withIdentifier: "FavouriteDetailViewController", sender: nil)
     }
     
     func onFavouriteButtonTapped(index: IndexPath, astro: CDAstro) {
@@ -120,3 +94,5 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
         }
     }
 }
+
+

@@ -1,34 +1,32 @@
 //
-//  HomeInteractor.swift
+//  FavouriteInteractor.swift
 //  bookapp
 //
-//  Created by Muhammad Hashir Shoaib on 18/05/2022.
+//  Created by Muhammad Hashir Shoaib on 19/05/2022.
 //
 
 import Foundation
 
-
-protocol HomeBusinessLogic {
+protocol FavouriteBusinessLogic {
     func markFavourite(indexPath: IndexPath)
     func markUnFavourite(indexPath: IndexPath)
     func astroCount() -> Int
     func getAstro(indexPath: IndexPath) -> CDAstro
     func setSelectedAstro(index: IndexPath)
-    func fetchAstros(request: Home.fetchAstroList.Request)
 }
 
-protocol HomeDataStore {
-    var astros: [CDAstro] { get }
-    var selectedAstro: CDAstro? { get }
+protocol FavouriteDataStore {
+    var astros: [CDAstro] { get set }
+    var selectedAstro: CDAstro? { get set }
 }
 
-class HomeInteractor: HomeBusinessLogic, HomeDataStore {
+class FavouriteInteractor: FavouriteBusinessLogic, FavouriteDataStore {
     // MARK: - VIP setup
     
-    let presenter: HomePresentationLogic
+    let presenter: FavouritePresentationLogic
     let worker = HomeWorker()
     
-    init(presenter: HomePresentationLogic) {
+    init(presenter: FavouritePresentationLogic) {
         self.presenter = presenter
     }
     
@@ -61,17 +59,4 @@ class HomeInteractor: HomeBusinessLogic, HomeDataStore {
         let index = indexPath.row
         return astros[index]
     }
-    
-    func fetchAstros(request: Home.fetchAstroList.Request) {
-        do {
-            try worker.fetchRandomNumber { astros in
-                self.astros = astros
-                self.presenter.updateTable(astros: astros)
-            }
-        } catch {
-            print("OHHH NOO no no")
-        }
-        
-    }
-    
 }

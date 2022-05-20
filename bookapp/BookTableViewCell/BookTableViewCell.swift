@@ -49,8 +49,6 @@ class BookTableViewCell: UITableViewCell {
     }
     
     @IBAction func onFavouriteIconTapped(_ sender: UIButton) {
-        // astro!.toggleFavourite(in: context)
-//        setFavouriteIcon(astro!.isFavourite)
         onFavouriteButtonTapped?(indexPath!, astro!)
     }
     

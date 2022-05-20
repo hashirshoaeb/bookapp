@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		2E3B0220281AA22C0008DF34 /* FavouriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3B021F281AA22C0008DF34 /* FavouriteViewController.swift */; };
+		2E42DEB6283662D300C24B59 /* FavouriteInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E42DEB5283662D300C24B59 /* FavouriteInteractor.swift */; };
+		2E42DEB8283665B500C24B59 /* FavouritePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E42DEB7283665B500C24B59 /* FavouritePresenter.swift */; };
+		2E42DEBA283667A400C24B59 /* HomeRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E42DEB9283667A400C24B59 /* HomeRouter.swift */; };
+		2E42DEBC28366DE400C24B59 /* FavouriteRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E42DEBB28366DE400C24B59 /* FavouriteRouter.swift */; };
+		2E42DEBF2836786500C24B59 /* DetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E42DEBE2836786500C24B59 /* DetailRouter.swift */; };
 		2E8A6AE4282922AC00D1C657 /* CDAstro+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8A6AE2282922AC00D1C657 /* CDAstro+CoreDataClass.swift */; };
 		2E8A6AE5282922AC00D1C657 /* CDAstro+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8A6AE3282922AC00D1C657 /* CDAstro+CoreDataProperties.swift */; };
 		2E8BD421282553E0000097ED /* bookapp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2E8BD41F282553E0000097ED /* bookapp.xcdatamodeld */; };
@@ -31,6 +36,11 @@
 
 /* Begin PBXFileReference section */
 		2E3B021F281AA22C0008DF34 /* FavouriteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteViewController.swift; sourceTree = "<group>"; };
+		2E42DEB5283662D300C24B59 /* FavouriteInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteInteractor.swift; sourceTree = "<group>"; };
+		2E42DEB7283665B500C24B59 /* FavouritePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritePresenter.swift; sourceTree = "<group>"; };
+		2E42DEB9283667A400C24B59 /* HomeRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRouter.swift; sourceTree = "<group>"; };
+		2E42DEBB28366DE400C24B59 /* FavouriteRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteRouter.swift; sourceTree = "<group>"; };
+		2E42DEBE2836786500C24B59 /* DetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRouter.swift; sourceTree = "<group>"; };
 		2E8A6AE2282922AC00D1C657 /* CDAstro+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDAstro+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2E8A6AE3282922AC00D1C657 /* CDAstro+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CDAstro+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2E8BD420282553E0000097ED /* bookapp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = bookapp.xcdatamodel; sourceTree = "<group>"; };
@@ -75,8 +85,29 @@
 				2EB1E22C2833E087007438A0 /* HomeWorker.swift */,
 				2EBF127C2834C38000F67532 /* HomeInteractor.swift */,
 				2EBF127E2834C40100F67532 /* HomePresenter.swift */,
+				2E42DEB9283667A400C24B59 /* HomeRouter.swift */,
 			);
 			path = main;
+			sourceTree = "<group>";
+		};
+		2E42DEB4283658EC00C24B59 /* Favourite */ = {
+			isa = PBXGroup;
+			children = (
+				2E3B021F281AA22C0008DF34 /* FavouriteViewController.swift */,
+				2E42DEB5283662D300C24B59 /* FavouriteInteractor.swift */,
+				2E42DEB7283665B500C24B59 /* FavouritePresenter.swift */,
+				2E42DEBB28366DE400C24B59 /* FavouriteRouter.swift */,
+			);
+			path = Favourite;
+			sourceTree = "<group>";
+		};
+		2E42DEBD283677C100C24B59 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				2EADC3A52816752400344B14 /* DetailViewController.swift */,
+				2E42DEBE2836786500C24B59 /* DetailRouter.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		2E8A6AE1282922AC00D1C657 /* model schema */ = {
@@ -118,6 +149,8 @@
 		2EADC38E2816735000344B14 /* bookapp */ = {
 			isa = PBXGroup;
 			children = (
+				2E42DEBD283677C100C24B59 /* Detail */,
+				2E42DEB4283658EC00C24B59 /* Favourite */,
 				2EA5B341282E420900931822 /* BookTableViewCell */,
 				2E2858CB282E3A2B00C948E9 /* main */,
 				2E8A6AE1282922AC00D1C657 /* model schema */,
@@ -128,10 +161,8 @@
 				2EADC3982816735300344B14 /* Assets.xcassets */,
 				2EADC39A2816735300344B14 /* LaunchScreen.storyboard */,
 				2EADC39D2816735300344B14 /* Info.plist */,
-				2EADC3A52816752400344B14 /* DetailViewController.swift */,
 				2EADC3AD2816808500344B14 /* Book.swift */,
 				2EADC3AF281680CE00344B14 /* BookApi.swift */,
-				2E3B021F281AA22C0008DF34 /* FavouriteViewController.swift */,
 				2E8BD41F282553E0000097ED /* bookapp.xcdatamodeld */,
 			);
 			path = bookapp;
@@ -274,14 +305,19 @@
 				2EADC3902816735000344B14 /* AppDelegate.swift in Sources */,
 				2EADC3AE2816808500344B14 /* Book.swift in Sources */,
 				2EBF127F2834C40100F67532 /* HomePresenter.swift in Sources */,
+				2E42DEB6283662D300C24B59 /* FavouriteInteractor.swift in Sources */,
+				2E42DEBF2836786500C24B59 /* DetailRouter.swift in Sources */,
 				2EADC3A62816752400344B14 /* DetailViewController.swift in Sources */,
 				2E8A6AE5282922AC00D1C657 /* CDAstro+CoreDataProperties.swift in Sources */,
+				2E42DEBA283667A400C24B59 /* HomeRouter.swift in Sources */,
 				2E8A6AE4282922AC00D1C657 /* CDAstro+CoreDataClass.swift in Sources */,
 				2E8BD421282553E0000097ED /* bookapp.xcdatamodeld in Sources */,
 				2E3B0220281AA22C0008DF34 /* FavouriteViewController.swift in Sources */,
 				2EADC3922816735000344B14 /* SceneDelegate.swift in Sources */,
 				2EB1E22D2833E087007438A0 /* HomeWorker.swift in Sources */,
+				2E42DEBC28366DE400C24B59 /* FavouriteRouter.swift in Sources */,
 				2EADC3B0281680CE00344B14 /* BookApi.swift in Sources */,
+				2E42DEB8283665B500C24B59 /* FavouritePresenter.swift in Sources */,
 				2EADC3AB28167B5A00344B14 /* BookTableViewCell.swift in Sources */,
 				2EADC3A42816751100344B14 /* MainViewController.swift in Sources */,
 				2EBF127D2834C38000F67532 /* HomeInteractor.swift in Sources */,

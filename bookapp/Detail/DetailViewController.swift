@@ -7,49 +7,55 @@
 
 import UIKit
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, ViewSetup, DetailDataStore {
     
+    // MARK: - VIP setup
     
+    var router: (DetailDataPassing)!
+    
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        setup()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setup()
+    }
+    
+    func setup() {
+        let viewController = self
+        let router = DetailRouter(viewController: viewController, dataStore: self)
+        viewController.router = router
+    }
+    
+    // MARK: - DataStore
+    
+    var data: CDAstro?
+    
+    // MARK: - View
     
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var backgroundImageView: UIImageView!
     
-    var data : CDAstro?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = data?.title
-        //        self.navigationItem.titleView?.tintColor = .blue
-        //        self.navigationController?.navigationBar.tintColor = .blues
         self.descriptionTextView.text = data?.explanation
         self.navigationItem.largeTitleDisplayMode = .never
-        
         DispatchQueue.global().async {
             self.backgroundImageView.loadFrom(URLAddress: self.data?.url ?? "")
         }
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-//        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
-
-//    deinit {
-//        print("HYAAAA OOD RABBBAAA")
-//        self.navigationController?.navigationBar.prefersLargeTitles = true
-//    }
-    
-    // setup the UI on naviagation
-    func setup(data : CDAstro) {
-        self.data = data
-    }
-    
     
     @IBAction func onShareTapped(_ sender: UIBarButtonItem) {
         let activityViewController = UIActivityViewController(activityItems: [self.descriptionTextView.text!, self.backgroundImageView.image!], applicationActivities: nil)
         self.present(activityViewController, animated: true)
     }
-    
     
     /*
      // MARK: - Navigation
